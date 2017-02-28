@@ -4,6 +4,7 @@
 
 import sys
 import urllib2
+from bs4 import BeautifulSoup as bs
 
 api_key = None
 
@@ -28,9 +29,12 @@ class WeatherClient(object):
         f.close()
 
         # llegir-la
-
+        soup = bs(data, 'lxml')
+        maximes = soup.find("temp_high")
+        normal = maximes.find("normal").find("c").text
+        record = maximes.find("record").find("c").text
         # retornar resultats
-        return data
+        return normal, record
 
 
 if __name__ == "__main__":
