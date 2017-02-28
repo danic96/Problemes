@@ -31,10 +31,23 @@ class WeatherClient(object):
         # llegir-la
         soup = bs(data, 'lxml')
         maximes = soup.find("temp_high")
-        normal = maximes.find("normal").find("c").text
-        record = maximes.find("record").find("c").text
+        minimes = soup.find("temp_low")
+        normal_maximes = maximes.find("normal").find("c").text
+        record_maximes = maximes.find("record").find("c").text
+
+        normal_minimes = minimes.find("normal").find("c").text
+        record_minimes = minimes.find("record").find("c").text
+
+        resultats = {}
+        resultats["maximes"] = {}
+        resultats["minimes"] = {}
+        resultats["maximes"]["normal"] = normal_maximes
+        resultats["maximes"]["record"] = record_maximes
+        resultats["minimes"]["normal"] = normal_minimes
+        resultats["minimes"]["record"] = record_minimes
+
         # retornar resultats
-        return normal, record
+        return resultats
 
 
 if __name__ == "__main__":
