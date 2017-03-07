@@ -19,4 +19,4 @@ class Sobre(models.Model):
     politic = models.ForeignKey(User)
 
     def __unicode__(self):
-        return self.empresa.nom+":"+str(self.amount)+":"+self.politic.name
+        return self.empresa.nom+":"+str(self.amount)+":"+self.politic.get_username()
