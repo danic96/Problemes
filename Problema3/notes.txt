@@ -1,0 +1,5 @@
+PRIMER PROBLEMA DJANGO
+
+    django-admin.py
+
+    django-admin.py startproject <nom del projecte>
