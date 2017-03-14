@@ -15,9 +15,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from isobres.views import mainpage
+from isobres.views import dashboard, mainpage
 
 urlpatterns = [
     url(r'^$', mainpage),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^profile/(\w+)/$', dashboard),
 ]

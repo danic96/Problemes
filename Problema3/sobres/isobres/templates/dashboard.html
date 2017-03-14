@@ -1,0 +1,12 @@
+{% extends "root.html" %}
+{% block contingut %}
+    <h1>Sobres de {{ username }} </h1>
+    {% if sobres %}
+        <ul>{% for sobre in sobres %}
+            <li>{{ sobre.empresa.nom }} - {{sobre.concept}} - {{sobre.amount}}€</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h2> No hi ha res per tu, penjat</h2>
+    {% endif %}
+{% endblock %}
